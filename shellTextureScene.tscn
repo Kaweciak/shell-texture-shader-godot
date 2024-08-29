@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceuni3ae4u4ux"]
+
+[ext_resource type="Script" path="res://grass_scene.gd" id="1_gq8dr"]
+
+[sub_resource type="Gradient" id="Gradient_84yoy"]
+colors = PackedColorArray(0.686909, 0.00190116, 0.870423, 1, 1, 0.570009, 0.681756, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xopwh"]
+gradient = SubResource("Gradient_84yoy")
+
+[node name="shellTexturing" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+script = ExtResource("1_gq8dr")
+number = 10
+height = 0.5
+density = 10000.0
+gradient = SubResource("GradientTexture1D_xopwh")
