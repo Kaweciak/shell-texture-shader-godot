@@ -17,12 +17,11 @@ void vertex() {
 
 void fragment() {
 	float rand = texture(noiseTexture, vec2(float(UV.x * density), float(UV.y * density))).r;
-	//ALBEDO = mix(bottomColour, topColour, height / maxHeight);
-	ALBEDO = texture(gradient, vec2(height/maxHeight) * rand).rgb;
-	
 	vec2 localSpace = fract(UV * density) * 2.0 - 1.0;
 	
-	ALPHA = (sqrt(pow(localSpace.x, 2) + pow(localSpace.y, 2)) < radius * (rand - height / maxHeight) ? 1.0 : 0.0) * ALPHA;
+	ALBEDO = texture(gradient, vec2(rand)).rgb;
+	
+	ALPHA = (sqrt(pow(localSpace.x, 2) + pow(localSpace.y, 2)) < radius * (rand - shellHeight) ? 1.0 : 0.0);
 }
 
 void light() {

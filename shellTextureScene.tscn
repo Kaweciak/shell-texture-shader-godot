@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceuni3ae4u4ux"]
+[gd_scene load_steps=6 format=3 uid="uid://ceuni3ae4u4ux"]
 
 [ext_resource type="Script" path="res://grass_scene.gd" id="1_gq8dr"]
 
 [sub_resource type="Gradient" id="Gradient_84yoy"]
-colors = PackedColorArray(0.686909, 0.00190116, 0.870423, 1, 1, 0.570009, 0.681756, 1)
+colors = PackedColorArray(0.413226, 0.55286, 0.148508, 1, 0.348773, 0.839943, 0.420705, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xopwh"]
 gradient = SubResource("Gradient_84yoy")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fydfx"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k81tu"]
+noise = SubResource("FastNoiseLite_fydfx")
+
 [node name="shellTexturing" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 script = ExtResource("1_gq8dr")
-number = 10
-height = 0.5
-density = 10000.0
+number = 8
+heightChange = 0.1
+density = 1.0
+radius = 1.0
 gradient = SubResource("GradientTexture1D_xopwh")
+noiseTexture = SubResource("NoiseTexture2D_k81tu")
